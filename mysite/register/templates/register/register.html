@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Registre-se
+{% endblock %}
+
+{% block jumbotron %}
+<h1 class="display-5">Criar uma conta</h1>
+<p>
+	Crie uma nova contra após preencher os campos abaixo.
+</p>
+{% endblock jumbotron %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center">
+        <form method='POST' class='form-group'>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type='submit' class='btn btn-success'>Registrar</button>
+        </form>
+    </div>
+{% endblock %}

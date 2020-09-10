@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt">
+<head>
+	<title>Python - Bootstrapping</title>
+
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<!-- Icon html page -->
+	<link rel="shortcut icon" href="{% static 'python.ico' %}" type="image/png" />
+
+	<style type="text/css">
+		/* Move down content because we have a fixed navbar that is 3.5rem tall */
+		body {
+		  padding-top: 3.5rem;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+	<!-- A grey horizontal navbar that becomes vertical on small screens -->
+		<a class="navbar-brand" href="#">Barra Menu</a>
+		<div class="collapse navbar-collapse">
+			<!-- Links -->
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Principal<span class="sr-only">(página atual)</span></a>
+					<!-- class .sr-only == Acessibilidade -->
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pág 1</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#">Pág 2</a>
+				</li>
+
+				<!-- Dropdown -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Lista suspensa
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Link 1</a>
+						<a class="dropdown-item" href="#">Link 2</a>
+						<a class="dropdown-item" href="#">Link 3</a>
+					</div>
+				</li>
+			</ul>
+
+			<!-- Form search -->
+			<form class="form-inline" action="#">
+				<input class="form-control mr-sm-2" type="text" placeholder="Pesquisar">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+			</form>
+		</div>
+	</nav>
+
+	<main>
+	<!-- Main: all content of website -->
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Olá, mundo!</h1>
+				<p>
+					Este é um modelo para um site de marketing ou informativo simples. Ele inclui um grande texto explicativo chamado jumbotron e três peças de conteúdo de apoio. Use-o como ponto de partida para criar algo mais exclusivo.
+				</p>
+				<p>
+					<button type="button" class="btn btn-lg btn-primary">Veja mais »</button>
+				</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Título</h2>
+					<p>
+						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+					</p>
+					<p>
+						<button type="button" class="btn btn-md btn-secondary">Detalhes »</button>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Título</h2>
+					<p>
+						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+					</p>
+					<p>
+						<button type="button" class="btn btn-md btn-secondary">Detalhes »</button>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<h2>Título</h2>
+					<p>
+						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+					</p>
+					<p>
+						<button type="button" class="btn btn-md btn-secondary">Detalhes »</button>
+					</p>
+				</div>
+			</div>	
+		</div>
+	</main>
+
+	<footer class="container">
+		<hr class="mt-5 mb-1">	
+		<div class="d-flex justify-content-center">
+			<p>
+				© Mathew's Company <i>2020-2025</i>
+			</p>
+		</div>
+	</footer>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Painel de usuário
+{% endblock title %}
+
+{% block jumbotron %}
+<h1 class="display-4">Bem-vindo(a), {% if user.first_name %}{{user.first_name|capfirst}}{% else %}{{user|capfirst}}{% endif %}!</h1>
+<p>
+    Está página é seu <strong><i>'Dashboard'</i></strong>, aqui você encontra todas informações sobre sua conta.
+</p>
+{% endblock jumbotron %}
+
+{% block content %}
+<div class="row">
+    <div class="mb-5 col-sm-4 align-self-start d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header text-dark">
+                <strong>Listas de Tarefas</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for list in user.lists.all %}
+                <a class="btn-light text-info text-decoration-none list-group-item"
+                    href="/list_view/{{ list.id }}-{{ list.name|slugify }}">
+                    <i class="fas fa-book"></i>
+                    {{ list.name }}
+                </a>
+                {% empty %}
+                <a class="btn btn-light list-group-item disabled" href="#">Não há nenhuma lista</a>
+                {% endfor %}
+            </ul>
+            <div class="card-header text-dark">
+                <strong>Informações da conta</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+                <a class="btn-light text-info text-decoration-none list-group-item" href="{% url 'register:dashboard'%}">
+                    <i class="fas fa-user-circle"></i>
+                    Perfil
+                </a>
+                <a class="btn-light text-info text-decoration-none list-group-item"
+                    href="{% url 'register:edit_profile' %}">
+                    <i class="fas fa-user-cog"></i>
+                    Configurações de Conta
+                </a>
+                <a class="btn-light text-info text-decoration-none list-group-item"
+                    href="{% url 'register:change_password' %}">
+                    <i class="fas fa-user-lock"></i>
+                    Alteração de Senha
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-8 d-flex justify-content-center">
+        {% block dashboard_content %}
+        <div id="card" class="card" style="width: 26rem;">
+            <img class="card-img-top" src="{% static 'img/dart.jpg' %}" alt="Imagem de capa do card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>{% if user.first_name %}{{user.first_name|capfirst}} {{ user.last_name|capfirst }}{% else %}{{user|capfirst}}{% endif %},</strong></h5>
+                <p class="card-text">
+                    Bem-vindo, essa é sua '<i>profile page</i>' ou, se preferir em português, página do perfil.              
+                </p>
+                <p class="card-text">
+                    A sua esquerda está localizado um menu com diversas opções, e logo abaixo estão algumas de suas informações.               
+                </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Usuário:</strong> {{ user }}</li>
+                <li class="list-group-item"><strong>E-mail:</strong> {{ user.email }}</li>
+                <li class="list-group-item"><strong>Nome:</strong> {{ user.first_name }}</li>
+                <li class="list-group-item"><strong>Sobrenome:</strong> {{ user.last_name }}</li>
+                <li class="list-group-item"><strong>Senha:</strong> Opaaa, aqui não! :D</li>
+            </ul>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+{% endblock content %}

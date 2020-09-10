@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block jumbotron %}
+<h1 class="display-5">Faça seu login</h1>
+<p>
+	Insira suas informações abaixo para realizar seu login no site. Caso não possua cadastro, clique no botão "Cadastre-se" no canto superior direito.
+</p>
+{% endblock jumbotron %}
+
+{% block content %}
+    <div class='d-flex justify-content-center'>
+        <form method='post' class='form-group'>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <p>Não possui uma conta? <a href='{% url "register:sign-up" %}'>Registre-se</a></p>
+            <div class='d-flex justify-content-center'>
+                <button class='btn btn-success pl-4 pr-4' type='submit'>Login</button>
+                </div>
+        </form>
+    </div>
+{% endblock content %}

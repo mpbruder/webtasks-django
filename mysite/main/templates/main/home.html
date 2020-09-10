@@ -1,0 +1,80 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block jumbotron %}
+<h1 class="display-3">Home page</h1>
+<p>
+	Esta é a Home Page do website criado por mim, Matheus Percário Bruder. Este
+	website foi desenvolvido com o propósito de colocar em prática tudo que vi
+	durante o curso de <i>desenvolvimento web Python com Django</i> no canal do
+	<b>YouTube "Tech with Tim"</b>.
+</p>
+<p class="mt-5">
+	<a class="text-white btn btn-lg btn-primary m-0 p-auto"
+		href="https://www.youtube.com/playlist?list=PLzMcBGfZo4-kQkZp-j9PNyKq7Yw5VYjq9" data-toggle="tooltip"
+		data-placement="bottom" title="Go to Tech with Tim! :D">Tech with Tim »</a>
+</p>
+
+{% endblock %}
+{% block content %}
+
+<script>
+	$(".carousel").carousel({
+		interval: 2000,
+	});
+</script>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ul class="carousel-indicators">
+		<li data-target="#demo" data-slide-to="0" class="active"></li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#demo" data-slide-to="2"></li>
+	</ul>
+
+	<!-- The slideshow -->
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<img src="{% static 'img/1.jpg' %}" alt="Imagem 1" width="1100" height="500" />
+			<div class="carousel-caption d-none d-md-block">
+				<h5>Primeiro Slide</h5>
+				<p>Esté é o primeiro slide do <strong>'Carousel'</strong></p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'img/2.jpg' %}" alt="Imagem 2" width="1100" height="500" />
+			<div class="carousel-caption d-none d-md-block">
+				<h5>Segundo Slide</h5>
+				<p>
+					Esté é o segundo slide, também conhecido como "slide do
+					meio", do
+					<strong>'Carousel'</strong>
+				</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<img src="{% static 'img/3.jpg' %}" alt="Imagem 3" width="1100" height="500" />
+			<div class="carousel-caption d-none d-md-block">
+				<h5>Terceiro Slide</h5>
+				<p>
+					Esté é o terceiro e último slide do
+					<strong>'Carousel'</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Left and right controls -->
+	<a class="carousel-control-prev" href="#demo" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</a>
+	<a class="carousel-control-next" href="#demo" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</a>
+</div>
+{% endblock %}

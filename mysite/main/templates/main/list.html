@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+	Lista de tarefas
+{% endblock %}
+
+
+{% block jumbotron %}
+<h1 class="display-5">{{lst.name}}</h1>
+<p>
+	Aqui estão listados todos os itens da tarefa especificada. Assim que concluir um item, marque o checkbox e clique em salvar. Mas se deseja acrescentar um item, insira o texto desejado e no botão verde para adiconá-lo.
+</p>
+{% endblock %}
+
+
+{% block content %}
+	<form method="POST" action="#">
+		{% csrf_token %}
+		{% for item in lst.itens.all %}
+		<div class="input-group mb-3 d-flex justify-content-center">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+				{% if item.complete == True %}
+						<input type="checkbox" value="clicked" name="c{{item.id}}" checked>
+				{% else %}
+						<input type="checkbox" value="clicked" name="c{{item.id}}">
+				{% endif %}
+				</div>
+			</div>
+			<ul class="list-group w-75">
+				<li class="list-group-item">{{item.text}}</li>
+			</ul>
+			<!-- <input type="text" value="{{item.text}}" class="form-control"> -->
+		</div>
+		{% endfor %}
+		<div class="input-group mt-5 mb-3 d-flex justify-content-center p-3">
+			<div class="input-group-prepend">
+				<button type="submit" name="newItem" value="newItem" class="btn btn-success p-2">
+					<i class="fas fa-plus-square pl-4 pr-4"></i>
+				</button>
+			</div>
+			<input type="text" name="newItemName" class="p-2 w-50" placeholder="Adicionar alguma tarefa...">
+		</div>
+		<div class="d-flex justify-content-center">
+			<button type="submit" name="save" value="save" class="btn btn-lg btn-outline-info">Salvar Alterações</button>
+		</div>
+	</form>
+{% endblock %}
